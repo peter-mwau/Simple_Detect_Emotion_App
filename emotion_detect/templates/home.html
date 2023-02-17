@@ -1,0 +1,41 @@
+<html>
+    <header>
+        <title>My Form</title>
+        {% comment %} #cdn for tailwindcss {% endcomment %}
+        <script src="https://cdn.tailwindcss.com"></script>
+    </header>
+<body class="container mx-auto border m-2 p-5 rounded-lg bg-slate-100">
+    <h1 class="p-3 text-black mx-auto bg-gradient-to-r from-cyan-500 to-blue-500 text-center text-2xl"><b>Emotions Detector</b></h1>
+    <div class="container mx-auto border m-2 rounded-lg p-2">
+        <form action="" method="post" class="block m-2 text-center">
+            {% csrf_token %}
+            {% comment %} {{form.as_p}} {% endcomment %}
+           <div class="border-2 p-2 mx-auto max-w-fit rounded-sm ">
+            <div class="items-center justify-center">
+                {{form.userInput.label_tag}}
+                {{form.userInput}}
+                </div>
+                <div class="p-1">
+                {{form.output.label_tag}}
+                <strong>{{form.output}}</strong>
+                </div>
+                <div class="p-1">
+                {{form.message.label_tag}}
+                {{form.message}}
+               </div>
+               <button class="bg-blue-100 rounded p-0" id='submit' type='submit' name="submit">Submit</button>
+           </div>
+           {% comment %} script to prevent button default action {% endcomment %}
+            {% comment %} <script>
+                document.queryGetElementById('submit').addEventListener('click', function(e){
+                     e.preventDefault();
+                     console.log('button clicked');
+                })
+            </script> {% endcomment %}
+         </form>  
+    </div>
+     
+</body>
+
+   
+</html>
